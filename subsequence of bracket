@@ -1,0 +1,48 @@
+            int subsequence = 0;
+            int BracketCount1 = 0;
+            int BracketCount2 = 0;
+            int bracket = 0;
+            string text;
+
+            Console.WriteLine("Введите скобочное выражение!");
+            text = Console.ReadLine();
+            for (var i = 0; i < text.Length; i++)
+            {
+                if (text[i] == '(')
+                {
+                    subsequence *= 0;
+                    bracket++;                  
+                    BracketCount1++;
+                }
+                if (text[i] == ')')
+                {
+                    subsequence += 1;
+                    bracket--;
+                    BracketCount2++;
+                }
+            }
+            if (bracket != 0)
+            {
+                Console.WriteLine("Не правильное, не парное кол-во скобок");
+            }
+            if (bracket == 0)
+            {
+                Console.WriteLine("Правильное, парное кол-во скобок");
+            }
+            if (BracketCount2 > 3)
+            {
+                Console.WriteLine("Не корректное выражение. Глубина больше 3");
+            }
+            if (BracketCount1 > 3)
+            {
+                Console.WriteLine("Не корректное выражение. Глубина больше 3");
+            }
+            if (subsequence == 0)
+            {
+                Console.WriteLine("Неправильная последовательность");
+            }
+            if (subsequence > 0)
+            {
+                Console.WriteLine("Правильная последовательность");
+            }
+            Console.ReadKey();
